@@ -45,8 +45,9 @@ class ViewController: UIViewController, SSDPDiscoveryDelegate {
                 print("No Device Data Retrieved from Device Info Request")
                 return
             }
+            let parseDelegate = DeviceDescriptionParser()
             let parser = XMLParser(data: deviceData)
-            parser.delegate = self
+            parser.delegate = parseDelegate
             if parser.parse() {
                 
             }
@@ -54,27 +55,72 @@ class ViewController: UIViewController, SSDPDiscoveryDelegate {
     }
 }
 
-extension ViewController: XMLParserDelegate {
-    // initialize results structure
+enum DeviceServiceType: String {
+    case Camera = "camera"
+    case Guide = "guide"
+    case unknown = "unknown"
+}
+
+struct DeviceService {
+    let serviceType: DeviceServiceType
+    let actionListURL: String
+}
+
+struct DeviceInfo {
+    var version: String = ""
+    var services = [DeviceService]()
+}
+
+class DeviceDescriptionParser: NSObject, XMLParserDelegate {
+    
+    var isParsingDeviceInfo = false
+    var deviceInfo = DeviceInfo()
+    var charactersFoundBuffer = ""
+    let deviceServices = [DeviceService]()
+    var currentDeviceServiceType: DeviceServiceType = .unknown
+    var currentDeviceServiceURL = ""
     
     func parserDidStartDocument(_ parser: XMLParser) {
         print("Beginning to Parse Device Info XML Doc")
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        
-        // TODO: Which of these is the one we want???
-        
-        if elementName.contains("ServiceType") {
-            print(attributeDict)
+        switch elementName {
+        case let name where name.hasSuffix("DeviceInfo"):
+            isParsingDeviceInfo = true
+            charactersFoundBuffer = ""
+        case let name where name.hasSuffix("Version"):
+            charactersFoundBuffer = ""
+        case let name where name.hasSuffix("ServiceType"):
+            currentDeviceServiceType = .unknown
+        case let name where name.hasSuffix("ActionList_URL"):
+            currentDeviceServiceURL = ""
+        default:
+            print("Unhandled XML Element Begin: \(elementName)")
         }
-        if elementName.contains("ServiceType") {
-            // Record Available Service Type
-            print(attributeDict)
-        } else if elementName.contains("ActionList_URL") {
-            // Record URL for Service Type
-            print(attributeDict)
+    }
+    
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        charactersFoundBuffer += string
+    }
+    
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        switch elementName {
+        case let name where name.hasSuffix("DeviceInfo"):
+            isParsingDeviceInfo = false
+        case let name where name.hasSuffix("Version"):
+            deviceInfo.version = charactersFoundBuffer
+        case let name where name.hasSuffix("Service"):
+            let newDeviceService = DeviceService(serviceType: currentDeviceServiceType, actionListURL: currentDeviceServiceURL)
+            deviceInfo.services.append(newDeviceService)
+        case let name where name.hasSuffix("ServiceType"):
+            currentDeviceServiceType = DeviceServiceType(rawValue: charactersFoundBuffer) ?? .unknown
+        case let name where name.hasSuffix("ActionList_URL"):
+            currentDeviceServiceURL = charactersFoundBuffer
+        default:
+            print("Unhandled XML Element Ended: \(elementName)")
         }
+        charactersFoundBuffer = ""
     }
     
     /// Just in case, if there's an error, report it. (We don't want to fly blind here.)
@@ -84,6 +130,5 @@ extension ViewController: XMLParserDelegate {
     
     func parserDidEndDocument(_ parser: XMLParser) {
         print("Finishing Device Info XML Doc Parsing")
-
     }
 }
