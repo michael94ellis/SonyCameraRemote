@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,9 @@
 		2FBCEC7D256AC52100AD7920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCEC7B256AC52100AD7920 /* Main.storyboard */; };
 		2FBCEC7F256AC52400AD7920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCEC7E256AC52400AD7920 /* Assets.xcassets */; };
 		2FBCEC82256AC52400AD7920 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCEC80256AC52400AD7920 /* LaunchScreen.storyboard */; };
+		2FBCEC8F256AC6AE00AD7920 /* SSDPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCEC8E256AC6AE00AD7920 /* SSDPService.swift */; };
+		2FBCEC92256AC6BF00AD7920 /* SSDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCEC91256AC6BF00AD7920 /* SSDPClient.swift */; };
+		2FBCEC96256AC79700AD7920 /* Socket in Frameworks */ = {isa = PBXBuildFile; productRef = 2FBCEC95256AC79700AD7920 /* Socket */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,8 @@
 		2FBCEC7E256AC52400AD7920 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FBCEC81256AC52400AD7920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FBCEC83256AC52400AD7920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FBCEC8E256AC6AE00AD7920 /* SSDPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDPService.swift; sourceTree = "<group>"; };
+		2FBCEC91256AC6BF00AD7920 /* SSDPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBCEC96256AC79700AD7920 /* Socket in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,12 +65,22 @@
 				2FBCEC75256AC52100AD7920 /* AppDelegate.swift */,
 				2FBCEC77256AC52100AD7920 /* SceneDelegate.swift */,
 				2FBCEC79256AC52100AD7920 /* ViewController.swift */,
+				2FBCEC98256AC88D00AD7920 /* SSDP */,
 				2FBCEC7B256AC52100AD7920 /* Main.storyboard */,
 				2FBCEC7E256AC52400AD7920 /* Assets.xcassets */,
 				2FBCEC80256AC52400AD7920 /* LaunchScreen.storyboard */,
 				2FBCEC83256AC52400AD7920 /* Info.plist */,
 			);
 			path = SonyCameraRemote;
+			sourceTree = "<group>";
+		};
+		2FBCEC98256AC88D00AD7920 /* SSDP */ = {
+			isa = PBXGroup;
+			children = (
+				2FBCEC8E256AC6AE00AD7920 /* SSDPService.swift */,
+				2FBCEC91256AC6BF00AD7920 /* SSDPClient.swift */,
+			);
+			path = SSDP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +99,9 @@
 			dependencies = (
 			);
 			name = SonyCameraRemote;
+			packageProductDependencies = (
+				2FBCEC95256AC79700AD7920 /* Socket */,
+			);
 			productName = SonyCameraRemote;
 			productReference = 2FBCEC72256AC52100AD7920 /* SonyCameraRemote.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +129,9 @@
 				Base,
 			);
 			mainGroup = 2FBCEC69256AC52100AD7920;
+			packageReferences = (
+				2FBCEC94256AC79700AD7920 /* XCRemoteSwiftPackageReference "BlueSocket" */,
+			);
 			productRefGroup = 2FBCEC73256AC52100AD7920 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +161,9 @@
 			files = (
 				2FBCEC7A256AC52100AD7920 /* ViewController.swift in Sources */,
 				2FBCEC76256AC52100AD7920 /* AppDelegate.swift in Sources */,
+				2FBCEC92256AC6BF00AD7920 /* SSDPClient.swift in Sources */,
 				2FBCEC78256AC52100AD7920 /* SceneDelegate.swift in Sources */,
+				2FBCEC8F256AC6AE00AD7920 /* SSDPService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +365,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2FBCEC94256AC79700AD7920 /* XCRemoteSwiftPackageReference "BlueSocket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/BlueSocket.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.200;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2FBCEC95256AC79700AD7920 /* Socket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FBCEC94256AC79700AD7920 /* XCRemoteSwiftPackageReference "BlueSocket" */;
+			productName = Socket;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2FBCEC6A256AC52100AD7920 /* Project object */;
 }
