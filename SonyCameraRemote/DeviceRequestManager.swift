@@ -16,11 +16,11 @@ struct DeviceRequest {
 
 struct DeviceResponse {
     /// If the request fails, "result" member is skipped
-    let result: [String]
+    let result: [String]?
     /// If the request succeeds, "error" member is skipped in the response
-    let error: (errorCode: Int, message: String)
+    let error: (errorCode: Int, message: String)?
     /// The client must set "version" member in the request. The type of "version" value is string and the version can be set as 2 numbers separated by dot (e.g. "1.0")
-    let version: String
+    let id: Int
 }
 
 class DeviceRequestManager {
@@ -51,12 +51,28 @@ class DeviceRequestManager {
         var serviceRequest = URLRequest(url: serviceRequestURL)
         serviceRequest.httpMethod = "POST"
         URLSession.shared.dataTask(with: serviceRequest) { data, response, error in
-//            guard let response = response else {
-//                print("Error: No response from \(#function)")
-//                return
-//            }
-//            
-            // TODO
+            guard error == nil else {
+                print("Error: \(String(describing: error?.localizedDescription))")
+                return
+            }
+            guard let data = data else {
+                print("Error: Data was nil")
+                return
+            }
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] else {
+                print("Error: Response data could not be converted to JSON")
+                return
+            }
+            let resultsKey = json.keys.contains("result") ? "result" : "results"
+            guard let results = json[resultsKey] as? [String] else {
+                print("Error parsing results array from device response")
+                return
+            }
+            guard json.keys.contains("id"), let id = json["id"] as? Int else {
+                print("Error parsing id from device response")
+                return
+            }
+            completionHandler(DeviceResponse(result: results, error: nil, id: id))
         }
     }
     

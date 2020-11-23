@@ -14,6 +14,7 @@ enum DeviceServiceType: String {
     case System = "system"
     /// To access still images and movies stored in a media.
     case AVContent = "avContent"
+    /// This is indicative of an error or unset value during XML parsing
     case unknown = "unknown"
 }
 

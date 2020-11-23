@@ -13,6 +13,7 @@ class DeviceConnectionManager: SSDPDiscoveryDelegate {
     
     /// Client used to find devices using SSDP
     let client = SSDPClient()
+    /// Holds the discovered service information retrived using SSDPClient
     private var ssdpService: SSDPService?
     
     func discoverCameras() {
@@ -20,6 +21,7 @@ class DeviceConnectionManager: SSDPDiscoveryDelegate {
         self.client.discoverSonyCameras()
     }
     
+    /// Look for devices using SSDP - Simple Service Discovery Protocol
     func ssdpDiscovery(_ discovery: SSDPClient, didDiscoverService service: SSDPService) {
         ssdpService = service
         guard let deviceInfoLocation = ssdpService?.location, let deviceInfoURL = URL(string: deviceInfoLocation) else {
@@ -29,6 +31,7 @@ class DeviceConnectionManager: SSDPDiscoveryDelegate {
         DeviceRequestManager.shared.requestDeviceInfo(deviceInfoURL)
     }
     
+    ///
     func parseDeviceInfo(_ deviceData: Data) {
         let parser = XMLParser(data: deviceData)
         parser.delegate = DeviceDescriptionParser.shared

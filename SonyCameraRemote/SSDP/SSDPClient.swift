@@ -11,26 +11,17 @@ import Socket
 // MARK: Protocols
 
 /// Delegate for service discovery
-public protocol SSDPDiscoveryDelegate {
-    /// Tells the delegate a requested service has been discovered.
-    func ssdpDiscovery(_ discovery: SSDPClient, didDiscoverService service: SSDPService)
-
-    /// Tells the delegate that the discovery ended due to an error.
-    func ssdpDiscovery(_ discovery: SSDPClient, didFinishWithError error: Error)
-
-    /// Tells the delegate that the discovery has started.
-    func ssdpDiscoveryDidStart(_ discovery: SSDPClient)
-
-    /// Tells the delegate that the discovery has finished.
-    func ssdpDiscoveryDidFinish(_ discovery: SSDPClient)
-}
-
+public protocol SSDPDiscoveryDelegate { }
 // Makes implementation of protocol methods optional
 public extension SSDPDiscoveryDelegate {
-    func ssdpDiscovery(_ discovery: SSDPClient, didDiscoverService service: SSDPService) {}
-    func ssdpDiscovery(_ discovery: SSDPClient, didFinishWithError error: Error) {}
-    func ssdpDiscoveryDidStart(_ discovery: SSDPClient) { print("Begin Camera Discovery") }
-    func ssdpDiscoveryDidFinish(_ discovery: SSDPClient) { print("End Camera Discoery") }
+    /// Tells the delegate a requested service has been discovered.
+    func ssdpDiscovery(_ discovery: SSDPClient, didDiscoverService service: SSDPService) { }
+    /// Tells the delegate that the discovery ended due to an error.
+    func ssdpDiscovery(_ discovery: SSDPClient, didFinishWithError error: Error) { }
+    /// Tells the delegate that the discovery has started.
+    func ssdpDiscoveryDidStart(_ discovery: SSDPClient) { }
+    /// Tells the delegate that the discovery has finished.
+    func ssdpDiscoveryDidFinish(_ discovery: SSDPClient) { }
 }
 
 /// SSDP discovery for UPnP devices on the LAN
@@ -38,27 +29,16 @@ public class SSDPClient {
 
     /// The UDP socket
     private var socket: Socket?
-
     /// Delegate for service discovery
     public var delegate: SSDPDiscoveryDelegate?
-
     /// The client is discovering
     public var isDiscovering: Bool {
-        get {
-            return self.socket != nil
-        }
-    }
-
-    // MARK: Initialisation
-
-    public init() {
+        self.socket != nil
     }
 
     deinit {
         self.stop()
     }
-
-    // MARK: Private functions
 
     /// Read responses.
     private func readResponses() {
@@ -96,12 +76,10 @@ public class SSDPClient {
     /// Force stop discovery closing the socket.
     private func forceStop() {
         if self.isDiscovering {
-            self.socket!.close()
+            self.socket?.close()
         }
         self.socket = nil
     }
-
-    // MARK: Public functions
 
     /**
         Discover SSDP services for a duration.
@@ -122,12 +100,20 @@ public class SSDPClient {
 
         do {
             self.socket = try Socket.create(type: .datagram, proto: .udp)
-            try self.socket!.listen(on: 0)
-
+            guard let socket = socket else {
+                print("Failed to create Socket!")
+                return
+            }
+            try socket.listen(on: 0)
+            
+            guard let socketAddress = Socket.createAddress(for: address, on: port) else {
+                print("Failed to create Socket Address!")
+                return
+            }
             self.readResponses(forDuration: duration)
-            try self.socket?.write(from: message, to: Socket.createAddress(for: address, on: port)!)
-
-        } catch let error {
+            try socket.write(from: message, to: socketAddress)
+            
+        } catch {
             self.forceStop()
             self.delegate?.ssdpDiscovery(self, didFinishWithError: error)
         }
