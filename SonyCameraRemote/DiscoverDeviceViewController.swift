@@ -39,6 +39,7 @@ class DiscoverDeviceViewController: UIViewController, SSDPDiscoveryDelegate {
         var wifiMessage = "Enter the Device's WiFi Name(SSID)"
         var buttonText = "Connect"
         let savedSSID = WifiController.shared.SSID
+        let wifiPassword = WifiController.shared.wifiPassword
         
         // Change message if user is already connected
         if (WifiController.shared.wifiConnectionInfo()?["SSID"] as? String) != nil {
@@ -47,7 +48,7 @@ class DiscoverDeviceViewController: UIViewController, SSDPDiscoveryDelegate {
             wifiMessage = "Enter the Device's WiFi Name(SSID)"
             buttonText = "Reconnect"
         }
-        presentWiFiDialog(title: wifiAlertTitle, message: wifiMessage, buttonText: buttonText, savedSSID: savedSSID)
+        presentWiFiDialog(title: wifiAlertTitle, message: wifiMessage, buttonText: buttonText, savedSSID: savedSSID, savedPassword: wifiPassword)
     }
 }
 
@@ -59,30 +60,38 @@ extension DiscoverDeviceViewController {
     var wifiDisconnectedImage: UIImage { UIImage(systemName: "wifi.slash") ?? UIImage() }
     var wifiExclamationImage: UIImage { UIImage(systemName: "wifi.exclamationmark") ?? UIImage() }
     
-    func presentWiFiDialog(title: String, message: String, buttonText: String, savedSSID: String) {
+    func presentWiFiDialog(title: String, message: String, buttonText: String, savedSSID: String, savedPassword: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.text = savedSSID
         }
+        alert.addTextField { (textField) in
+            textField.text = savedPassword
+        }
         alert.addAction(UIAlertAction(title: buttonText, style: .default, handler: { _ in
-            let textField = alert.textFields?[0]
-            guard let newSSID = textField?.text, !newSSID.isEmpty else {
+            let ssidTextField = alert.textFields?[0]
+            let passwordTextField = alert.textFields?[1]
+            guard let newSSID = ssidTextField?.text, !newSSID.isEmpty else {
                 self.wifiButton.setTitle("Invalid SSID", for: .normal)
+                return
+            }
+            guard let newPassword = passwordTextField?.text, !newPassword.isEmpty else {
+                self.wifiButton.setTitle("Invalid Password", for: .normal)
                 return
             }
             if newSSID != savedSSID {
                 WifiController.shared.SSID = newSSID
             }
-            self.connectToDroneWiFi(ssid: newSSID)
-            print("Connecting to WiFi SSID: \(textField?.text ?? "error")")
+            self.connectToDroneWiFi(ssid: newSSID, password: newPassword)
+            print("Connecting to WiFi SSID: \(newSSID)")
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
-    func connectToDroneWiFi(ssid: String) {
+    func connectToDroneWiFi(ssid: String, password: String) {
         self.wifiButton.isEnabled = false
-        WifiController.shared.connectTo(ssid: ssid) { success in
+        WifiController.shared.connectTo(ssid: ssid, password: password) { success in
             self.wifiButton.isEnabled = true
             guard success else {
                 self.wifiButton.setImage(self.wifiExclamationImage, for: .normal)

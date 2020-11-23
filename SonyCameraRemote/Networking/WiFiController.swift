@@ -23,10 +23,16 @@ class WifiController: NSObject {
         get { UserDefaults.standard.string(forKey: SSIDKey) ?? "" }
         set { UserDefaults.standard.set(newValue, forKey: SSIDKey) }
     }
+    // Remember the users WiFi password between sessions
+    private let passwordKey = "WIFIPASSWORD"
+    var wifiPassword: String {
+        get { UserDefaults.standard.string(forKey: passwordKey) ?? "" }
+        set { UserDefaults.standard.set(newValue, forKey: passwordKey) }
+    }
     
     private var hotspotConfig: NEHotspotConfiguration?
     
-    func connectTo(ssid: String, completion: @escaping (Bool) -> ()) {
+    func connectTo(ssid: String, password: String, completion: @escaping (Bool) -> ()) {
         hotspotConfig = NEHotspotConfiguration(ssid: SSID)
         guard let hotspotConfig = hotspotConfig else {
             print("Error while connecting to Device WiFi")
