@@ -42,5 +42,5 @@ extension AvailableFunctionsVC: UITableViewDelegate, UITableViewDataSource {
         let newCell = UITableViewCell()
         newCell.textLabel?.text = funcs[indexPath.row]
         return newCell
-    }    
+    }
 }
