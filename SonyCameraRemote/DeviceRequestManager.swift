@@ -28,21 +28,6 @@ class DeviceRequestManager {
     static let shared = DeviceRequestManager()
     private init() { }
     
-    func requestDeviceInfo(_ deviceInfoURL: URL) {
-        let deviceInfoRequest = URLRequest(url: deviceInfoURL)
-        URLSession.shared.dataTask(with: deviceInfoRequest) { data, response, error in
-            if let error = error {
-                print("Device Info Responded with ERROR: \(error.localizedDescription)")
-                return
-            }
-            guard let deviceData = data else {
-                print("No Device Data Retrieved from Device Info Request")
-                return
-            }
-            DeviceConnectionManager.shared.parseDeviceInfo(deviceData)
-        }.resume()
-    }
-    
     func postDeviceServiceRequest(serviceURL: String, request: DeviceRequest, completionHandler: @escaping (DeviceResponse) -> ()) {
         guard let serviceRequestURL = URL(string: serviceURL) else {
             print("Error: Service URL cannot be converted to type URL: \(serviceURL)")
@@ -75,5 +60,4 @@ class DeviceRequestManager {
             completionHandler(DeviceResponse(result: results, error: nil, id: id))
         }
     }
-    
 }

@@ -20,7 +20,8 @@
 		2FBCECA0256B161500AD7920 /* DeviceDescriptionXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCEC9F256B161500AD7920 /* DeviceDescriptionXMLParser.swift */; };
 		2FBCECA4256B1BD100AD7920 /* DeviceRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCECA3256B1BD100AD7920 /* DeviceRequestManager.swift */; };
 		2FBCECA7256B1C5B00AD7920 /* DeviceConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCECA6256B1C5B00AD7920 /* DeviceConnectionManager.swift */; };
-		2FBCECAB256B257D00AD7920 /* DeviceAPIMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCECAA256B257D00AD7920 /* DeviceAPIMethods.swift */; };
+		2FBCECAB256B257D00AD7920 /* CameraServiceMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCECAA256B257D00AD7920 /* CameraServiceMethods.swift */; };
+		2FBCECAF256BDF7600AD7920 /* OtherServiceMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCECAE256BDF7600AD7920 /* OtherServiceMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +39,8 @@
 		2FBCEC9F256B161500AD7920 /* DeviceDescriptionXMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDescriptionXMLParser.swift; sourceTree = "<group>"; };
 		2FBCECA3256B1BD100AD7920 /* DeviceRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRequestManager.swift; sourceTree = "<group>"; };
 		2FBCECA6256B1C5B00AD7920 /* DeviceConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnectionManager.swift; sourceTree = "<group>"; };
-		2FBCECAA256B257D00AD7920 /* DeviceAPIMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAPIMethods.swift; sourceTree = "<group>"; };
+		2FBCECAA256B257D00AD7920 /* CameraServiceMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServiceMethods.swift; sourceTree = "<group>"; };
+		2FBCECAE256BDF7600AD7920 /* OtherServiceMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherServiceMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +77,8 @@
 				2FBCEC75256AC52100AD7920 /* AppDelegate.swift */,
 				2FBCEC77256AC52100AD7920 /* SceneDelegate.swift */,
 				2FBCEC79256AC52100AD7920 /* ViewController.swift */,
-				2FBCECAA256B257D00AD7920 /* DeviceAPIMethods.swift */,
+				2FBCECAA256B257D00AD7920 /* CameraServiceMethods.swift */,
+				2FBCECAE256BDF7600AD7920 /* OtherServiceMethods.swift */,
 				2FBCEC9B256B15EC00AD7920 /* DeviceDataModels.swift */,
 				2FBCECA6256B1C5B00AD7920 /* DeviceConnectionManager.swift */,
 				2FBCECA3256B1BD100AD7920 /* DeviceRequestManager.swift */,
@@ -175,7 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FBCEC7A256AC52100AD7920 /* ViewController.swift in Sources */,
-				2FBCECAB256B257D00AD7920 /* DeviceAPIMethods.swift in Sources */,
+				2FBCECAB256B257D00AD7920 /* CameraServiceMethods.swift in Sources */,
 				2FBCECA4256B1BD100AD7920 /* DeviceRequestManager.swift in Sources */,
 				2FBCECA7256B1C5B00AD7920 /* DeviceConnectionManager.swift in Sources */,
 				2FBCEC9C256B15EC00AD7920 /* DeviceDataModels.swift in Sources */,
@@ -184,6 +187,7 @@
 				2FBCEC78256AC52100AD7920 /* SceneDelegate.swift in Sources */,
 				2FBCEC8F256AC6AE00AD7920 /* SSDPService.swift in Sources */,
 				2FBCECA0256B161500AD7920 /* DeviceDescriptionXMLParser.swift in Sources */,
+				2FBCECAF256BDF7600AD7920 /* OtherServiceMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

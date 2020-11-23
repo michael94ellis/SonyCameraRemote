@@ -28,10 +28,25 @@ class DeviceConnectionManager: SSDPDiscoveryDelegate {
             print("Error creating DeviceInfo URL")
             return
         }
-        DeviceRequestManager.shared.requestDeviceInfo(deviceInfoURL)
+        requestDeviceInfo(deviceInfoURL)
     }
     
-    ///
+    func requestDeviceInfo(_ deviceInfoURL: URL) {
+        let deviceInfoRequest = URLRequest(url: deviceInfoURL)
+        URLSession.shared.dataTask(with: deviceInfoRequest) { data, response, error in
+            if let error = error {
+                print("Device Info Responded with ERROR: \(error.localizedDescription)")
+                return
+            }
+            guard let deviceData = data else {
+                print("No Device Data Retrieved from Device Info Request")
+                return
+            }
+            self.parseDeviceInfo(deviceData)
+        }.resume()
+    }
+    
+    /// After receiving device info, parse the DeviceDescription XML doc
     func parseDeviceInfo(_ deviceData: Data) {
         let parser = XMLParser(data: deviceData)
         parser.delegate = DeviceDescriptionParser.shared
