@@ -77,33 +77,62 @@
             </objects>
             <point key="canvasLocation" x="20" y="76"/>
         </scene>
-        <!--Item 2-->
+        <!--PlaceHolder-->
         <scene sceneID="Gwl-UK-o3b">
             <objects>
                 <viewController id="aDd-Fh-4en" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uYh-u7-2Xa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLACEHOLDER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26k-pA-1PG">
+                                <rect key="frame" x="20" y="144" width="374" height="269"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="g5c-wf-XBc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="26k-pA-1PG" firstAttribute="top" secondItem="g5c-wf-XBc" secondAttribute="top" constant="100" id="E2R-cK-N4T"/>
+                            <constraint firstItem="26k-pA-1PG" firstAttribute="leading" secondItem="g5c-wf-XBc" secondAttribute="leading" constant="20" id="Sz6-2b-Fgd"/>
+                            <constraint firstItem="g5c-wf-XBc" firstAttribute="bottom" secondItem="26k-pA-1PG" secondAttribute="bottom" constant="400" id="khf-q0-nLg"/>
+                            <constraint firstItem="g5c-wf-XBc" firstAttribute="trailing" secondItem="26k-pA-1PG" secondAttribute="trailing" constant="20" id="mZ2-E3-btb"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="EUD-1v-ksL"/>
+                    <tabBarItem key="tabBarItem" title="PlaceHolder" image="text.book.closed" catalog="system" selectedImage="text.book.closed.fill" id="EUD-1v-ksL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Isz-Vf-jOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2085" y="358"/>
         </scene>
-        <!--Item 1-->
+        <!--Functions-->
         <scene sceneID="fgK-Kd-9k6">
             <objects>
-                <viewController id="GH7-pI-FyO" sceneMemberID="viewController">
+                <viewController title="Functions" id="GH7-pI-FyO" customClass="AvailableFunctionsVC" customModule="SonyCameraRemote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yth-Nw-z6U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PZi-ef-MpK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OfU-IZ-Odw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OfU-IZ-Odw" firstAttribute="trailing" secondItem="PZi-ef-MpK" secondAttribute="trailing" id="9iD-Wh-8DC"/>
+                            <constraint firstItem="OfU-IZ-Odw" firstAttribute="bottom" secondItem="PZi-ef-MpK" secondAttribute="bottom" id="GEh-WV-3Ku"/>
+                            <constraint firstItem="PZi-ef-MpK" firstAttribute="top" secondItem="OfU-IZ-Odw" secondAttribute="top" id="N2s-OB-Yyk"/>
+                            <constraint firstItem="PZi-ef-MpK" firstAttribute="leading" secondItem="OfU-IZ-Odw" secondAttribute="leading" id="Uza-jk-9qo"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="QIS-AQ-dr3"/>
+                    <tabBarItem key="tabBarItem" title="Functions" image="camera" catalog="system" selectedImage="camera.fill" id="QIS-AQ-dr3"/>
+                    <connections>
+                        <outlet property="availableFunctionsList" destination="PZi-ef-MpK" id="7hk-SS-ZRj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAE-Mz-P5X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,8 +158,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="text.book.closed" catalog="system" width="115" height="128"/>
+        <image name="text.book.closed.fill" catalog="system" width="115" height="128"/>
         <image name="wifi" catalog="system" width="128" height="91"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

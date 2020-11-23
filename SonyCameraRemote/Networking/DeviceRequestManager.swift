@@ -8,10 +8,10 @@
 import Foundation
 
 struct DeviceRequest {
-    let method: String
     let params: [String]
     let id: Int
     let version: String
+    let method: String
 }
 
 struct DeviceResponse {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F1D8E98256C19AA002C0A22 /* WiFiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D8E97256C19AA002C0A22 /* WiFiController.swift */; };
+		2F1D8E9B256C1FA7002C0A22 /* AvailableFunctionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D8E9A256C1FA7002C0A22 /* AvailableFunctionsVC.swift */; };
 		2FBCEC76256AC52100AD7920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCEC75256AC52100AD7920 /* AppDelegate.swift */; };
 		2FBCEC78256AC52100AD7920 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCEC77256AC52100AD7920 /* SceneDelegate.swift */; };
 		2FBCEC7A256AC52100AD7920 /* DiscoverDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCEC79256AC52100AD7920 /* DiscoverDeviceViewController.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		2F1D8E97256C19AA002C0A22 /* WiFiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiController.swift; sourceTree = "<group>"; };
+		2F1D8E9A256C1FA7002C0A22 /* AvailableFunctionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableFunctionsVC.swift; sourceTree = "<group>"; };
 		2FBCEC72256AC52100AD7920 /* SonyCameraRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SonyCameraRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBCEC75256AC52100AD7920 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FBCEC77256AC52100AD7920 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				2FBCEC75256AC52100AD7920 /* AppDelegate.swift */,
 				2FBCEC77256AC52100AD7920 /* SceneDelegate.swift */,
 				2FBCEC79256AC52100AD7920 /* DiscoverDeviceViewController.swift */,
+				2F1D8E9A256C1FA7002C0A22 /* AvailableFunctionsVC.swift */,
 				2FBCECB1256BE44200AD7920 /* Camera Device */,
 				2FBCEC98256AC88D00AD7920 /* Networking */,
 				2FBCEC7B256AC52100AD7920 /* Main.storyboard */,
@@ -188,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F1D8E9B256C1FA7002C0A22 /* AvailableFunctionsVC.swift in Sources */,
 				2FBCEC7A256AC52100AD7920 /* DiscoverDeviceViewController.swift in Sources */,
 				2FBCECAB256B257D00AD7920 /* CameraServiceMethods.swift in Sources */,
 				2FBCECA4256B1BD100AD7920 /* DeviceRequestManager.swift in Sources */,
