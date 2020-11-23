@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, SSDPDiscoveryDelegate {
+class DiscoverDeviceViewController: UIViewController, SSDPDiscoveryDelegate {
 
     @IBOutlet weak var discoveryButton: UIButton!
     

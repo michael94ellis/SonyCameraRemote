@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1D8E98256C19AA002C0A22 /* WiFiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1D8E97256C19AA002C0A22 /* WiFiController.swift */; };
 		2FBCEC76256AC52100AD7920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCEC75256AC52100AD7920 /* AppDelegate.swift */; };
 		2FBCEC78256AC52100AD7920 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCEC77256AC52100AD7920 /* SceneDelegate.swift */; };
-		2FBCEC7A256AC52100AD7920 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCEC79256AC52100AD7920 /* ViewController.swift */; };
+		2FBCEC7A256AC52100AD7920 /* DiscoverDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCEC79256AC52100AD7920 /* DiscoverDeviceViewController.swift */; };
 		2FBCEC7D256AC52100AD7920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCEC7B256AC52100AD7920 /* Main.storyboard */; };
 		2FBCEC7F256AC52400AD7920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCEC7E256AC52400AD7920 /* Assets.xcassets */; };
 		2FBCEC82256AC52400AD7920 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCEC80256AC52400AD7920 /* LaunchScreen.storyboard */; };
@@ -25,10 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F1D8E97256C19AA002C0A22 /* WiFiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiController.swift; sourceTree = "<group>"; };
 		2FBCEC72256AC52100AD7920 /* SonyCameraRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SonyCameraRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBCEC75256AC52100AD7920 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FBCEC77256AC52100AD7920 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2FBCEC79256AC52100AD7920 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2FBCEC79256AC52100AD7920 /* DiscoverDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDeviceViewController.swift; sourceTree = "<group>"; };
 		2FBCEC7C256AC52100AD7920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2FBCEC7E256AC52400AD7920 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FBCEC81256AC52400AD7920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,14 +78,9 @@
 			children = (
 				2FBCEC75256AC52100AD7920 /* AppDelegate.swift */,
 				2FBCEC77256AC52100AD7920 /* SceneDelegate.swift */,
-				2FBCEC79256AC52100AD7920 /* ViewController.swift */,
-				2FBCECAA256B257D00AD7920 /* CameraServiceMethods.swift */,
-				2FBCECAE256BDF7600AD7920 /* OtherServiceMethods.swift */,
-				2FBCEC9B256B15EC00AD7920 /* DeviceDataModels.swift */,
-				2FBCECA6256B1C5B00AD7920 /* DeviceConnectionManager.swift */,
-				2FBCECA3256B1BD100AD7920 /* DeviceRequestManager.swift */,
-				2FBCEC9F256B161500AD7920 /* DeviceDescriptionXMLParser.swift */,
-				2FBCEC98256AC88D00AD7920 /* SSDP */,
+				2FBCEC79256AC52100AD7920 /* DiscoverDeviceViewController.swift */,
+				2FBCECB1256BE44200AD7920 /* Camera Device */,
+				2FBCEC98256AC88D00AD7920 /* Networking */,
 				2FBCEC7B256AC52100AD7920 /* Main.storyboard */,
 				2FBCEC7E256AC52400AD7920 /* Assets.xcassets */,
 				2FBCEC80256AC52400AD7920 /* LaunchScreen.storyboard */,
@@ -92,13 +89,27 @@
 			path = SonyCameraRemote;
 			sourceTree = "<group>";
 		};
-		2FBCEC98256AC88D00AD7920 /* SSDP */ = {
+		2FBCEC98256AC88D00AD7920 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				2FBCECA6256B1C5B00AD7920 /* DeviceConnectionManager.swift */,
+				2FBCECA3256B1BD100AD7920 /* DeviceRequestManager.swift */,
 				2FBCEC8E256AC6AE00AD7920 /* SSDPService.swift */,
 				2FBCEC91256AC6BF00AD7920 /* SSDPClient.swift */,
+				2F1D8E97256C19AA002C0A22 /* WiFiController.swift */,
 			);
-			path = SSDP;
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		2FBCECB1256BE44200AD7920 /* Camera Device */ = {
+			isa = PBXGroup;
+			children = (
+				2FBCECAA256B257D00AD7920 /* CameraServiceMethods.swift */,
+				2FBCECAE256BDF7600AD7920 /* OtherServiceMethods.swift */,
+				2FBCEC9B256B15EC00AD7920 /* DeviceDataModels.swift */,
+				2FBCEC9F256B161500AD7920 /* DeviceDescriptionXMLParser.swift */,
+			);
+			path = "Camera Device";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FBCEC7A256AC52100AD7920 /* ViewController.swift in Sources */,
+				2FBCEC7A256AC52100AD7920 /* DiscoverDeviceViewController.swift in Sources */,
 				2FBCECAB256B257D00AD7920 /* CameraServiceMethods.swift in Sources */,
 				2FBCECA4256B1BD100AD7920 /* DeviceRequestManager.swift in Sources */,
 				2FBCECA7256B1C5B00AD7920 /* DeviceConnectionManager.swift in Sources */,
@@ -187,6 +198,7 @@
 				2FBCEC78256AC52100AD7920 /* SceneDelegate.swift in Sources */,
 				2FBCEC8F256AC6AE00AD7920 /* SSDPService.swift in Sources */,
 				2FBCECA0256B161500AD7920 /* DeviceDescriptionXMLParser.swift in Sources */,
+				2F1D8E98256C19AA002C0A22 /* WiFiController.swift in Sources */,
 				2FBCECAF256BDF7600AD7920 /* OtherServiceMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +348,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2R6W9P99E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SonyCameraRemote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -355,6 +371,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2R6W9P99E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SonyCameraRemote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

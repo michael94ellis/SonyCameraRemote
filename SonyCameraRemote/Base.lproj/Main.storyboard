@@ -8,39 +8,133 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Discover Device View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SonyCameraRemote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DiscoverDeviceViewController" customModule="SonyCameraRemote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TM-8J-qeF">
-                                <rect key="frame" x="137.5" y="433" width="139" height="30"/>
-                                <state key="normal" title="DISCOVER DEVICES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mli-aC-7L7">
+                                <rect key="frame" x="0.0" y="209" width="414" height="653"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TM-8J-qeF">
+                                <rect key="frame" x="188.5" y="137" width="177" height="27"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <state key="normal" title=" Discover Device" image="plus" catalog="system">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
                                 <connections>
                                     <action selector="discoveryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TU5-GH-Cen"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0v1-eN-wDz">
+                                <rect key="frame" x="43.5" y="64.5" width="100" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="IAK-jM-QAh"/>
+                                    <constraint firstAttribute="height" constant="100" id="wnY-Rr-FAZ"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxq-Ib-Yd1">
+                                <rect key="frame" x="188.5" y="64" width="179.5" height="27"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <state key="normal" title=" Connect to WiFi" image="wifi" catalog="system">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="wifiButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vmx-cX-GSf"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4TM-8J-qeF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vL0-ki-0F5"/>
-                            <constraint firstItem="4TM-8J-qeF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zT9-eZ-IOB"/>
+                            <constraint firstItem="0v1-eN-wDz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="164-k9-ZJp"/>
+                            <constraint firstItem="4TM-8J-qeF" firstAttribute="leading" secondItem="0v1-eN-wDz" secondAttribute="trailing" constant="45" id="1KC-WG-z5t"/>
+                            <constraint firstItem="Mli-aC-7L7" firstAttribute="top" secondItem="0v1-eN-wDz" secondAttribute="bottom" constant="45" id="4Bf-RX-nW6"/>
+                            <constraint firstItem="Mli-aC-7L7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8MI-L5-iHQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mli-aC-7L7" secondAttribute="trailing" id="XY8-fF-06V"/>
+                            <constraint firstItem="Nxq-Ib-Yd1" firstAttribute="top" secondItem="0v1-eN-wDz" secondAttribute="top" id="c8k-7k-JpG"/>
+                            <constraint firstItem="Nxq-Ib-Yd1" firstAttribute="leading" secondItem="4TM-8J-qeF" secondAttribute="leading" id="fTN-Nt-gJL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mli-aC-7L7" secondAttribute="bottom" id="gdj-qI-0IB"/>
+                            <constraint firstItem="Nxq-Ib-Yd1" firstAttribute="leading" secondItem="0v1-eN-wDz" secondAttribute="trailing" constant="45" id="jhj-Jb-KXG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Nxq-Ib-Yd1" secondAttribute="trailing" constant="30" id="kvQ-AF-JJp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4TM-8J-qeF" secondAttribute="trailing" constant="30" id="mon-X8-Ca3"/>
+                            <constraint firstItem="4TM-8J-qeF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Nxq-Ib-Yd1" secondAttribute="bottom" constant="30" id="pkl-ar-dxI"/>
+                            <constraint firstItem="4TM-8J-qeF" firstAttribute="bottom" secondItem="0v1-eN-wDz" secondAttribute="bottom" id="tKW-Ns-og7"/>
+                            <constraint firstItem="4TM-8J-qeF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="70" id="uti-iM-iSe"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="discoveredDevicesList" destination="Mli-aC-7L7" id="T5m-9U-pN3"/>
                         <outlet property="discoveryButton" destination="4TM-8J-qeF" id="G2O-xW-mOA"/>
+                        <outlet property="wifiButton" destination="Nxq-Ib-Yd1" id="kdi-YM-0Jy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="76"/>
         </scene>
+        <!--Item 2-->
+        <scene sceneID="Gwl-UK-o3b">
+            <objects>
+                <viewController id="aDd-Fh-4en" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uYh-u7-2Xa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="g5c-wf-XBc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="EUD-1v-ksL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Isz-Vf-jOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2085" y="358"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="fgK-Kd-9k6">
+            <objects>
+                <viewController id="GH7-pI-FyO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yth-Nw-z6U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="OfU-IZ-Odw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="QIS-AQ-dr3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zAE-Mz-P5X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2085" y="-250"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="byQ-OE-cAW">
+            <objects>
+                <tabBarController storyboardIdentifier="TabController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ozv-Cg-Rqe" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Km-rc-SGX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="GH7-pI-FyO" kind="relationship" relationship="viewControllers" id="m2a-ST-jYH"/>
+                        <segue destination="aDd-Fh-4en" kind="relationship" relationship="viewControllers" id="LZC-gl-Jy3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sqt-Ko-ZNm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1197" y="54"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="wifi" catalog="system" width="128" height="91"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

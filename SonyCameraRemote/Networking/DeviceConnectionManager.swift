@@ -6,10 +6,17 @@
 //
 
 import Foundation
+
+protocol DeviceDiscoveryDelegate: class {
+    func deviceFound()
+}
+
 class DeviceConnectionManager: SSDPDiscoveryDelegate {
     
-    static let shared = DeviceConnectionManager()
-    private init() { }
+    init(discoveryDelegate: DeviceDiscoveryDelegate) {
+        self.delegate = discoveryDelegate
+    }
+    private weak var delegate: DeviceDiscoveryDelegate?
     
     /// Client used to find devices using SSDP
     let client = SSDPClient()
@@ -52,6 +59,7 @@ class DeviceConnectionManager: SSDPDiscoveryDelegate {
         parser.delegate = DeviceDescriptionParser.shared
         if parser.parse() {
             print("Successful Device Description XML Doc Parse")
+            delegate?.deviceFound()
         } else {
             print("Error: Failed to parse Device Description XML Doc")
         }
