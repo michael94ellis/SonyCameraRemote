@@ -6,13 +6,13 @@
 //
 
 enum DeviceServiceType: String {
-    /// To get supported API services.
+    /// To get/set camera settings, and access shooting functions
     case Camera = "camera"
-    /// To get/set camera settings, and access shooting functions.
+    /// To get supported API services
     case Guide = "guide"
-    /// To get/set system settings.
+    /// To get/set system settings
     case System = "system"
-    /// To access still images and movies stored in a media.
+    /// To access still images and movies stored in a media
     case AVContent = "avContent"
     /// This is indicative of an error or unset value during XML parsing
     case unknown = "unknown"
