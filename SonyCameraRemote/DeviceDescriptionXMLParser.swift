@@ -49,10 +49,10 @@ class DeviceDescriptionParser: NSObject, XMLParserDelegate {
         case let name where name.hasSuffix("DeviceInfo"):
             isParsingDeviceInfo = false
         case let name where name.hasSuffix("Version"):
-            deviceInfo.version = charactersFoundBuffer
+            DeviceInfo.version = charactersFoundBuffer
         case let name where name.hasSuffix("Service"):
             let newDeviceService = DeviceService(serviceType: currentDeviceServiceType, actionListURL: currentDeviceServiceURL)
-            deviceInfo.services.append(newDeviceService)
+            DeviceInfo.services.append(newDeviceService)
         case let name where name.hasSuffix("ServiceType"):
             currentDeviceServiceType = DeviceServiceType(rawValue: charactersFoundBuffer) ?? .unknown
         case let name where name.hasSuffix("ActionList_URL"):

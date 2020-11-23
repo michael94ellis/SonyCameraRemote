@@ -25,9 +25,6 @@ struct DeviceService {
 }
 
 struct DeviceInfo {
-    
-    static var shared = DeviceInfo()
-    
-    var version: String = ""
-    var services = [DeviceService]()
+    static var version: String = ""
+    static var services = [DeviceService]()
 }
