@@ -23,190 +23,174 @@ enum CameraServiceMethods {
     /// provides a function to call on to know when to wait while the camera is taking a picture
     static let awaitTakePicture = "awaitTakePicture"
     
-    startContShooting
-    stopContShooting
-    startMovieRec
-    stopMovieRec
-    startAudioRec
-    stopAudioRec startIntervalStillRec
-    stopIntervalStillRec
-    startLoopRec
-    stopLoopRec
-    startLiveview
-    stopLiveview
-    startLiveviewWithSize
-    getLiveviewSize
-    getSupportedLiveviewSize getAvailableLiveviewSize
-    setLiveviewFrameInfo
-    getLiveviewFrameInfo
-    actZoom
-    
-    setZoomSetting
-    getZoomSetting
-    getSupportedZoomSetting
-    getAvailableZoomSetting
-    actHalfPressShutter
-    cancelHalfPressShutter
-    setTouchAFPosition
-    getTouchAFPosition
-    cancelTouchAFPosition
-    actTrackingFocus
-    cancelTrackingFocus
-    setTrackingFocus
-    getTrackingFocus
-    
-    
-    getSupportedTrackingFocus
-    getAvailableTrackingFocus
-    setContShootingMode
-    getContShootingMode
-    getSupportedContShootingMode
-    getAvailableContShootingMode
-    setContShootingSpeed
-    getContShootingSpeed
-    getSupportedContShootingSpeed
-    getAvailableContShootingSpeed
-    setSelfTimer
-    
-    getSelfTimer
-    getSupportedSelfTimer
-    getAvailableSelfTimer
-    setExposureMode
-    getExposureMode
-    getSupportedExposureMode
-    
-    getAvailableExposureMode
-    setFocusMode
-    getFocusMode
-    getSupportedFocusMode
-    getAvailableFocusMode
-    setExposureCompensation
-    getExposureCompensation
-    getSupportedExposureCompensation
-    
-    getAvailableExposureCompensation
-    setFNumber
-    getFNumber
-    getSupportedFNumber
-    getAvailableFNumber
-    setShutterSpeed
-    getShutterSpeed
-    getSupportedShutterSpeed
-    getAvailableShutterSpeed
-    setIsoSpeedRate
-    getIsoSpeedRate
-    getSupportedIsoSpeedRate
-    
-    getAvailableIsoSpeedRate
-    setWhiteBalance
-    getWhiteBalance
-    getSupportedWhiteBalance
-    getAvailableWhiteBalance
-    actWhiteBalanceOnePushCustom
-    setProgramShift
-    getSupportedProgramShift
-    
-    setFlashMode
-    
-    getFlashMode
-    
-    getSupportedFlashMode
-    getAvailableFlashMode
-    setStillSize
-    getStillSize
-    getSupportedStillSize
-    getAvailableStillSize
-    setStillQuality
-    getStillQuality
-    
-    getSupportedStillQuality
-    getAvailableStillQuality
-    setPostviewImageSize
-    getPostviewImageSize
-    getSupportedPostviewImageSize
-    getAvailablePostviewImageSize
-    setMovieFileFormat
-    getMovieFileFormat
-    getSupportedMovieFileFormat
-    
-    getAvailableMovieFileFormat
-    setMovieQuality
-    
-    getMovieQuality
-    getSupportedMovieQuality
-    getAvailableMovieQuality
-    setSteadyMode
-    getSteadyMode
-    
-    getSupportedSteadyMode
-    getAvailableSteadyMode
-    setViewAngle
-    getViewAngle
-    getSupportedViewAngle
-    getAvailableViewAngle
-    setSceneSelection
-    getSceneSelection
-    getSupportedSceneSelection
-    getAvailableSceneSelection
-    setColorSetting
-    getColorSetting
-    getSupportedColorSetting
-    getAvailableColorSetting
-    setIntervalTime
-    getIntervalTime
-    getSupportedIntervalTime
-    
-    getAvailableIntervalTime
-    setLoopRecTime
-    
-    getLoopRecTime
-    getSupportedLoopRecTime
-    getAvailableLoopRecTime
-    setWindNoiseReduction
-    getWindNoiseReduction
-    getSupportedWindNoiseReduction
-    getAvailableWindNoiseReduction
-    setAudioRecording
-    getAudioRecording
-    getSupportedAudioRecording
-    getAvailableAudioRecording
-    setFlipSetting
-    getFlipSetting
-    
-    getSupportedFlipSetting
-    getAvailableFlipSetting
-    setTvColorSystem
-    getTvColorSystem
-    getSupportedTvColorSystem
-    getAvailableTvColorSystem
-    startRecMode
-    stopRecMode
-    setCameraFunction
-    getCameraFunction
-    getSupportedCameraFunction
-    getAvailableCameraFunction
-    setInfraredRemoteControl
-    getInfraredRemoteControl
-    getSupportedInfraredRemoteControl
-    getAvailableInfraredRemoteControl
-    setAutoPowerOff
-    getAutoPowerOff
-    getSupportedAutoPowerOff
-    getAvailableAutoPowerOff
-    setBeepMode
-    getBeepMode
-    getSupportedBeepMode
-    getAvailableBeepMode
-    setCurrentTime
-    getStorageInformation
-    getEvent (v1.0)
-    getEvent (v1.1)
-    getEvent (v1.2)
-    getEvent (v1.3)
-    getAvailableApiList
-    getApplicationInfo
-    getVersions
-    getMethodTypes
+    static let startContShooting = "startContShooting"
+    static let stopContShooting = "stopContShooting"
+    static let startMovieRec = "startMovieRec"
+    static let stopMovieRec = "stopMovieRec"
+    static let startAudioRec = "startAudioRec"
+    static let stopAudioRec = "stopAudioRec"
+    static let startIntervalStillRec = "startIntervalStillRec"
+    static let stopIntervalStillRec = "startIntervalStillRec"
+    static let startLoopRec = "startLoopRec"
+    static let stopLoopRec = "stopLoopRec"
+    static let startLiveview = "startLiveview"
+    static let stopLiveview = "stopLiveview"
+    static let startLiveviewWithSize = "startLiveviewWithSize"
+    static let getLiveviewSize = "getLiveviewSize"
+    static let getSupportedLiveviewSize = "getSupportedLiveviewSize"
+    static let getAvailableLiveviewSize = "getAvailableLiveviewSize"
+    static let setLiveviewFrameInfo = "setLiveviewFrameInfo"
+    static let getLiveviewFrameInfo = "getLiveviewFrameInfo"
+    static let actZoom = "actZoom"
+    static let setZoomSetting = "setZoomSetting"
+    static let getZoomSetting = "getZoomSetting"
+    static let getSupportedZoomSetting = "getSupportedZoomSetting"
+    static let getAvailableZoomSetting = "getAvailableZoomSetting"
+    static let actHalfPressShutter = "actHalfPressShutter"
+    static let cancelHalfPressShutter = "cancelHalfPressShutter"
+    static let setTouchAFPosition = "setTouchAFPosition"
+    static let getTouchAFPosition = "getTouchAFPosition"
+    static let cancelTouchAFPosition = "cancelTouchAFPosition"
+    static let actTrackingFocus = "actTrackingFocus"
+    static let cancelTrackingFocus = "cancelTrackingFocus"
+    static let setTrackingFocus = "setTrackingFocus"
+    static let getTrackingFocus = "getTrackingFocus"
+    static let getSupportedTrackingFocus = "getSupportedTrackingFocus"
+    static let getAvailableTrackingFocus = "getAvailableTrackingFocus"
+    static let setContShootingMode = "setContShootingMode"
+    static let getContShootingMode = "getContShootingMode"
+    static let getSupportedContShootingMode = "getSupportedContShootingMode"
+    static let getAvailableContShootingMode = "getAvailableContShootingMode"
+    static let setContShootingSpeed = "setContShootingSpeed"
+    static let getContShootingSpeed = "getContShootingSpeed"
+    static let getSupportedContShootingSpeed = "getSupportedContShootingSpeed"
+    static let getAvailableContShootingSpeed = "getAvailableContShootingSpeed"
+    static let setSelfTimer = "setSelfTimer"
+    static let getSelfTimer = "getSelfTimer"
+    static let getSupportedSelfTimer = "getSupportedSelfTimer"
+    static let getAvailableSelfTimer = "getAvailableSelfTimer"
+    static let setExposureMode = "setExposureMode"
+    static let getExposureMode = "getExposureMode"
+    static let getSupportedExposureMode = "getSupportedExposureMode"
+    static let getAvailableExposureMode = "getAvailableExposureMode"
+    static let setFocusMode = "setFocusMode"
+    static let getFocusMode = "getFocusMode"
+    static let getSupportedFocusMode = "getSupportedFocusMode"
+    static let getAvailableFocusMode = "getAvailableFocusMode"
+    static let setExposureCompensation = "setExposureCompensation"
+    static let getExposureCompensation = "getExposureCompensation"
+    static let getSupportedExposureCompensation = "getSupportedExposureCompensation"
+    static let getAvailableExposureCompensation = "getAvailableExposureCompensation"
+    static let setFNumber = "setFNumber"
+    static let getFNumber = "getFNumber"
+    static let getSupportedFNumber = "getSupportedFNumber"
+    static let getAvailableFNumber = "getAvailableFNumber"
+    static let setShutterSpeed = "setShutterSpeed"
+    static let getShutterSpeed = "getShutterSpeed"
+    static let getSupportedShutterSpeed = "getSupportedShutterSpeed"
+    static let getAvailableShutterSpeed = "getAvailableShutterSpeed"
+    static let setIsoSpeedRate = "setIsoSpeedRate"
+    static let getIsoSpeedRate = "getIsoSpeedRate"
+    static let getSupportedIsoSpeedRate = "getSupportedIsoSpeedRate"
+    static let getAvailableIsoSpeedRate = "getAvailableIsoSpeedRate"
+    static let setWhiteBalance = "setWhiteBalance"
+    static let getWhiteBalance = "getWhiteBalance"
+    static let getSupportedWhiteBalance = "getSupportedWhiteBalance"
+    static let getAvailableWhiteBalance = "getAvailableWhiteBalance"
+    static let actWhiteBalanceOnePushCustom = "actWhiteBalanceOnePushCustom"
+    static let setProgramShift = "setProgramShift"
+    static let getSupportedProgramShift = "getSupportedProgramShift"
+    static let setFlashMode = "setFlashMode"
+    static let getFlashMode = "getFlashMode"
+    static let getSupportedFlashMode = "getSupportedFlashMode"
+    static let getAvailableFlashMode = "getAvailableFlashMode"
+    static let setStillSize = "setStillSize"
+    static let getStillSize = "getStillSize"
+    static let getSupportedStillSize = "getSupportedStillSize"
+    static let getAvailableStillSize = "getAvailableStillSize"
+    static let setStillQuality = "setStillQuality"
+    static let getStillQuality = "getStillQuality"
+    static let getSupportedStillQuality = "getSupportedStillQuality"
+    static let getAvailableStillQuality = "getAvailableStillQuality"
+    static let setPostviewImageSize = "setPostviewImageSize"
+    static let getPostviewImageSize = "getPostviewImageSize"
+    static let getSupportedPostviewImageSize = "getSupportedPostviewImageSize"
+    static let getAvailablePostviewImageSize = "getAvailablePostviewImageSize"
+    static let setMovieFileFormat = "setMovieFileFormat"
+    static let getMovieFileFormat = "getMovieFileFormat"
+    static let getSupportedMovieFileFormat = "getSupportedMovieFileFormat"
+    static let getAvailableMovieFileFormat = "getAvailableMovieFileFormat"
+    static let setMovieQuality = "setMovieQuality"
+    static let getMovieQuality = "getMovieQuality"
+    static let getSupportedMovieQuality = "getSupportedMovieQuality"
+    static let getAvailableMovieQuality = "getAvailableMovieQuality"
+    static let setSteadyMode = "setSteadyMode"
+    static let getSteadyMode = "getSteadyMode"
+    static let getSupportedSteadyMode = "getSupportedSteadyMode"
+    static let getAvailableSteadyMode = "getAvailableSteadyMode"
+    static let setViewAngle = "setViewAngle"
+    static let getViewAngle = "getViewAngle"
+    static let getSupportedViewAngle = "getSupportedViewAngle"
+    static let getAvailableViewAngle = "getAvailableViewAngle"
+    static let setSceneSelection = "setSceneSelection"
+    static let getSceneSelection = "getSceneSelection"
+    static let getSupportedSceneSelection = "getSupportedSceneSelection"
+    static let getAvailableSceneSelection = "getAvailableSceneSelection"
+    static let setColorSetting = "setColorSetting"
+    static let getColorSetting = "getColorSetting"
+    static let getSupportedColorSetting = "getSupportedColorSetting"
+    static let getAvailableColorSetting = "getAvailableColorSetting"
+    static let setIntervalTime = "setIntervalTime"
+    static let getIntervalTime = "getIntervalTime"
+    static let getSupportedIntervalTime = "getSupportedIntervalTime"
+    static let getAvailableIntervalTime = "getAvailableIntervalTime"
+    static let setLoopRecTime = "setLoopRecTime"
+    static let getLoopRecTime = "getLoopRecTime"
+    static let getSupportedLoopRecTime = "getSupportedLoopRecTime"
+    static let getAvailableLoopRecTime = "getAvailableLoopRecTime"
+    static let setWindNoiseReduction = "setWindNoiseReduction"
+    static let getWindNoiseReduction = "getWindNoiseReduction"
+    static let getSupportedWindNoiseReduction = "getSupportedWindNoiseReduction"
+    static let getAvailableWindNoiseReduction = "getAvailableWindNoiseReduction"
+    static let setAudioRecording = "setAudioRecording"
+    static let getAudioRecording = "getAudioRecording"
+    static let getSupportedAudioRecording = "getSupportedAudioRecording"
+    static let getAvailableAudioRecording = "getAvailableAudioRecording"
+    static let setFlipSetting = "setFlipSetting"
+    static let getFlipSetting = "getFlipSetting"
+    static let getSupportedFlipSetting = "getSupportedFlipSetting"
+    static let getAvailableFlipSetting = "getAvailableFlipSetting"
+    static let setTvColorSystem = "setTvColorSystem"
+    static let getTvColorSystem = "getTvColorSystem"
+    static let getSupportedTvColorSystem = "getSupportedTvColorSystem"
+    static let getAvailableTvColorSystem = "getAvailableTvColorSystem"
+    static let startRecMode = "startRecMode"
+    static let stopRecMode = "stopRecMode"
+    static let setCameraFunction = "setCameraFunction"
+    static let getCameraFunction = "getCameraFunction"
+    static let getSupportedCameraFunction = "getSupportedCameraFunction"
+    static let getAvailableCameraFunction = "getAvailableCameraFunction"
+    static let setInfraredRemoteControl = "setInfraredRemoteControl"
+    static let getInfraredRemoteControl = "getInfraredRemoteControl"
+    static let getSupportedInfraredRemoteControl = "getSupportedInfraredRemoteControl"
+    static let getAvailableInfraredRemoteControl = "getAvailableInfraredRemoteControl"
+    static let setAutoPowerOff = "setAutoPowerOff"
+    static let getAutoPowerOff = "getAutoPowerOff"
+    static let getSupportedAutoPowerOff = "getSupportedAutoPowerOff"
+    static let getAvailableAutoPowerOff = "getAvailableAutoPowerOff"
+    static let setBeepMode = "setBeepMode"
+    static let getBeepMode = "getBeepMode"
+    static let getSupportedBeepMode = "getSupportedBeepMode"
+    static let getAvailableBeepMode = "getAvailableBeepMode"
+    static let setCurrentTime = "setCurrentTime"
+    static let getStorageInformation = "getStorageInformation"
+    /// (v1.0), (v1.1), (v1.2), (v1.3)
+    static let getEvent = "getEvent"
+    /// the available API names that the device supports at the moment
+    static let getAvailableApiList = "getAvailableApiList"
+    static let getApplicationInfo = "getApplicationInfo"
+    static let getVersions = "getVersions"
+    static let getMethodTypes = "getMethodTypes"
 }
 
 

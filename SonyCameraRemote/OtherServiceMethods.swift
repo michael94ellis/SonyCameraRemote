@@ -8,20 +8,25 @@
 import Foundation
 
 enum SystemServiceMethods {
-    getVersions getMethodTypes
+    static let getVersions = "getVersions"
+    static let getMethodTypes = "getMethodTypes"
 }
 
 enum AVContentServiceMethods {
-    getSchemeList
-    getSourceList
-    getContentCount (v1.2)
-    getContentList (v1.3)
-    setStreamingContent
-    startStreaming
-    pauseStreaming
-    seekStreamingPosition
-    stopStreaming
-    requestToNotifyStreamingStatus
-    deleteContent (v1.1)
-    getVersions getMethodTypes
+    static let getSchemeList = "getSchemeList"
+    static let getSourceList = "getSourceList"
+    /// (v1.2)
+    static let getContentCount = "getContentCount"
+    /// (v1.3)
+    static let getContentList = "getContentList"
+    static let setStreamingContent = "setStreamingContent"
+    static let startStreaming = "startStreaming"
+    static let pauseStreaming = "pauseStreaming"
+    static let seekStreamingPosition = "seekStreamingPosition"
+    static let stopStreaming = "stopStreaming"
+    static let requestToNotifyStreamingStatus = "requestToNotifyStreamingStatus"
+    /// (v1.1)
+    static let deleteContent = "deleteContent"
+    static let getVersions = "getVersions"
+    static let getMethodTypes = "getMethodTypes"
 }
