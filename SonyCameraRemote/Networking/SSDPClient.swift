@@ -17,7 +17,9 @@ public extension SSDPDiscoveryDelegate {
     /// Tells the delegate a requested service has been discovered.
     func ssdpDiscovery(_ discovery: SSDPClient, didDiscoverService service: SSDPService) { }
     /// Tells the delegate that the discovery ended due to an error.
-    func ssdpDiscovery(_ discovery: SSDPClient, didFinishWithError error: Error) { }
+    func ssdpDiscovery(_ discovery: SSDPClient, didFinishWithError error: Error) {
+        print("SSDP Error: \(error.localizedDescription)")
+    }
     /// Tells the delegate that the discovery has started.
     func ssdpDiscoveryDidStart(_ discovery: SSDPClient) { }
     /// Tells the delegate that the discovery has finished.
@@ -51,7 +53,6 @@ public class SSDPClient {
                 let (remoteHost, _) = Socket.hostnameAndPort(from: address!)!
                 self.delegate?.ssdpDiscovery(self, didDiscoverService: SSDPService(host: remoteHost, response: response!))
             }
-
         } catch let error {
             self.forceStop()
             self.delegate?.ssdpDiscovery(self, didFinishWithError: error)
@@ -112,7 +113,6 @@ public class SSDPClient {
             }
             self.readResponses(forDuration: duration)
             try socket.write(from: message, to: socketAddress)
-            
         } catch {
             self.forceStop()
             self.delegate?.ssdpDiscovery(self, didFinishWithError: error)
