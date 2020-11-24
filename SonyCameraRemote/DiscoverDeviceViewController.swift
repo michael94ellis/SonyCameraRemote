@@ -133,6 +133,7 @@ extension DiscoverDeviceViewController: UITableViewDelegate, UITableViewDataSour
 
 extension DiscoverDeviceViewController: DeviceDiscoveryDelegate{
     func deviceFound() {
-        self.didDiscoverDevice = true
+        didDiscoverDevice = true
+        discoveredDevicesList.reloadData()
     }
 }
