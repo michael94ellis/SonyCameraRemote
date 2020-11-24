@@ -92,11 +92,11 @@ public class SSDPClient {
         let address = "239.255.255.250"
         let port: Int32 = 1900
         let message =
-            "M-SEARCH * HTTP/1.1\r\n" +
-            "HOST: \(address):\(port)\r\n" +
-            "MAN: \"ssdp:discover\"\r\n" +
-            "MX: \(Int(duration))\r\n" +
-            "ST: urn:schemas-sony-com:service:ScalarWebAPI:1\r\n"
+            "M-SEARCH * HTTP/1.1\n" +
+            "HOST: \(address):\(port)\n" +
+            "MAN: \"ssdp:discover\"\n" +
+            "MX: \(Int(duration))\n" +
+            "ST: urn:schemas-sony-com:service:ScalarWebAPI:1\n"
 
         do {
             self.socket = try Socket.create(type: .datagram, proto: .udp)
